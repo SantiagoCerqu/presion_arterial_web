@@ -16,3 +16,10 @@ Este proyecto recolecta y almacena datos de presión sanguínea, saturación y p
 1. Clona este repositorio.
    ```bash
    git clone https://github.com/usuario/presion_arterial_web.git
+
+## Imagenes
+
+![1](screenshots/1.png)
+
+![2](screenshots/2.png)
+
