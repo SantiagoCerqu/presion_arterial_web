@@ -1,0 +1,85 @@
+{% extends "layout.html"%}
+
+{% block body %}
+    <h2>Add Medical Record for {{ user['first_name'] }} {{ user['last_name'] }}:</h2>
+
+    <form action="" method="post">
+
+        <div class="row">
+            <div class="col-auto">
+                <label for="event_date" class="col-form-label">Fecha:</label>
+                <input type="date" class="form-control" name="event_date" id="event_date">
+            </div>
+            <div class="col-auto">
+                <label for="event_time" class="col-form-label">Hora:</label>
+                <input type="time" class="form-control" name="event_time" id="event_time">
+            </dir>
+        </div>
+
+        <div class="row">
+            <div class="col-auto">
+                <label for="systolic" class="col-form-label">Presion Sistolica:</label>
+                <input type="number" class="form-control" name="systolic" id="systolic">
+            </div>
+    
+            <div class="col-auto">
+                <label for="diastolic" class="col-form-label">Presion Diastolica:</label>
+                <input type="number" class="form-control" name="diastolic" id="diastolic">
+            </div>
+    
+            <div class="col-auto">
+                <label for="heart_rate" class="col-form-label">Pulsaciones:</label>
+                <input type="number" class="form-control" name="heart_rate" id="heart_rate">
+            </div>
+            <div class="col-auto">
+                <label for="saturation" class="col-form-label">Saturacion:</label>
+                <input type="number" class="form-control" name="saturation" id="saturation">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-auto">
+                <label for="observations" class="col-form-label">Observaciones:</label>
+                <input type="text" class="form-control" name="observations" id="observations">
+                <br>
+            </div>
+        </div>
+
+        <div class="col-auto">
+            <button class="btn btn-primary mb-3" type="submit">Agregar Registro</button>
+        </div>
+
+    </form>
+
+    <h2>Registros de {{ user['username'] }}:</h2>
+    {% if medical_records %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Presion Sistolica</th>
+                    <th>Presion Diastolica</th>
+                    <th>Pulsaciones</th>
+                    <th>Saturacion</th>
+                    <th>Observaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in medical_records %}
+                    <tr>
+                        <td>{{ record['event_date'] }}</td>
+                        <td>{{ record['event_time' ]}}</td>
+                        <td>{{ record['systolic_pressure'] }}</td>
+                        <td>{{ record['diastolic_pressure'] }}</td>
+                        <td>{{ record['heart_rate'] }}</td>
+                        <td>{{ record['saturation'] }}</td>
+                        <td>{{ record['observations'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h4>User doen't have medical records yet.</h4>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout.html"%}
+
+{% block body %}
+    <h2>Add new user</h2>
+    {% if message %}
+        <h3>{{ message }}</h3>
+    {% endif %}
+    <form action="/new_user" method="post">
+
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" autofocus>
+
+        <label for="f_name">First name:</label>
+        <input type="text" name="f_name" id="f_name" >
+
+        <label for="l_name">Last name:</label>
+        <input type="text" name="l_name" id="l_name">
+
+        <label for="birthdate">Birthdate:</label>
+        <input type="date" name="birthdate" id="birthdate">
+
+        <button type="submit">Add User</button>
+
+    </form> 
+
+    <a href="/">Go back to index page</a>
+{% endblock %}

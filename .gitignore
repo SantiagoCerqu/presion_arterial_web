@@ -1,0 +1,6 @@
+__pycache__/
+random.sql
+.env
+.flaskenv
+.vscode
+.DS_Store
